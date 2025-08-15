@@ -1,0 +1,31 @@
+---
+description: SwiftUI Components — Defaults, Customization, A11y
+globs: ["Sources/**/Views/**", "Sources/**/Components/**"]
+alwaysApply: false
+---
+
+# Goals
+- Beautiful defaults → progressive customization → advanced override via **Style protocols** and **Environment tokens**.
+
+# When creating a new View
+1) Start with a **3–5 line plan** (props, layout, state, risks).
+2) Implement with a small, stable **initializer** (use defaulted params).
+3) Expose advanced control via a `...Style` protocol + Environment key.
+4) Add **three previews**: default, deeply customized, a11y (XL Dynamic Type, Dark, High Contrast).
+5) Write a **test plan** and a snapshot test scaffold.
+6) Add doc comments + a DocC “Usage” and “Customize” section.
+
+# API Shape (pattern)
+- Prefer a `Configuration` struct with sensible defaults.
+- Provide `Default…Style` plus an Environment key for user-defined styles.
+- No hardcoded brand colors/typography; route through tokens.
+
+# iOS 26 Adoption
+- Use new APIs where they materially improve UX; wrap in `#available(iOS 26, *)` and document fallbacks.
+- If creating a view that is only aviaable in iOS 26+ and in project that is not iOS 26+ we should just create Text "Only available in iOS 26+"
+
+# Include (examples)
+@component-template.swift
+@a11y-checklist.md
+@preview-template.swift
+@snapshot-test-template.swift

@@ -1,0 +1,27 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : {
+        "automatic-gradient" : "display-p3:0.71158,0.90671,1.00000,1.00000"
+      }
+    },
+    {
+      "appearance" : "dark",
+      "value" : {
+        "linear-gradient" : [
+          "display-p3:0.36825,0.41733,0.43360,1.00000",
+          "display-p3:0.23323,0.29733,0.31277,1.00000"
+        ]
+      }
+    }
+  ],
+  "groups" : [
+
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

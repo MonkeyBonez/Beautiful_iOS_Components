@@ -1,0 +1,59 @@
+---
+alwaysApply: true
+---
+# Purpose (TL;DR)
+- Build a **Swift Package** of production-quality **SwiftUI views** that are:
+  1) beautiful by default, 2) **highly customizable**, 3) **fully accessible**.
+- Target **Xcode 26 / iOS 26 (beta)** features with graceful fallbacks where feasible.
+- Optimize for open-source contribution, clarity, and long-term maintainability.
+
+# Principles
+- **Defaults first**, customization second (inits → modifiers/styles → Environment tokens).
+- **Accessibility is important**; but focus on aesthetics.
+- **Composition over inheritance**; small, testable, orthogonal components.
+- **API stability**: additive changes, defaulted params, clear semver.
+
+# Anti-Bloat (must follow)
+- **No app targets in the package.** Demo lives in `/Examples/DemoApp` and depends on the package **locally**.
+- **Minimal runtime deps.** Prefer zero; if unavoidable, justify benefit:cost in the PR and hide behind flags.
+- **Assets:** per asset ≤ 500 KB (compressed), total package resources ≤ 5 MB. Prefer SF Symbols, vectors, shapes.
+- **No telemetry/network** in package code; views are pure UI.
+- **iOS 26 APIs** guarded by `@available`/`#available`; provide fallback or restrict platform.
+- **Examples/tests only** stay in `Examples/` or `Tests/`, never under `Sources/`.
+
+# Coding Standards
+- Swift toolchain from **Xcode 26**. Concurrency correctness (Sendable, MainActor where needed).
+- **SwiftFormat** + **SwiftLint** configs in repo root; CI must enforce both.
+- Public symbols require doc comments; complex components get **DocC** articles.
+- File headers: module brief + SPDX license (match `LICENSE`).
+
+# Accessibility (always)
+- Dynamic Type (incl. extra sizes); scalable fonts.
+- VoiceOver: meaningful labels/values/traits/actions.
+- Contrast ≥ WCAG AA; provide high-contrast variants when practical.
+- Respect Reduce Motion; offer non-animated fallbacks.
+- Minimum hit targets 44×44 pt; support Switch Control/keyboard where relevant.
+
+# Performance & Rendering
+- Prefer value types; avoid unnecessary `ObservableObject`.
+- Minimize layout thrash; cache where safe; push heavy work off init.
+- Favor vectors/symbols; document memory trade-offs for rasters.
+
+# Tests & Previews
+- Every public view ships with: default preview, **customization** preview, **a11y** preview.
+- Snapshot tests for visuals; deterministic sizes and seeds.
+- A11y tests verify presence/quality of labels/traits.
+
+# Versioning & Releases
+- **SemVer**. No breaking inits without a major bump + migration notes.
+- Changelog entries for: new components, API changes, a11y notes, adoption tips.
+
+# Suggested Structure
+- `Sources/<Module>/Components`, `Sources/<Module>/Styles`, `Sources/<Module>/Tokens`, `Sources/<Module>/Utilities`
+- `Tests/<Module>Tests`
+- `Examples/DemoApp` (Xcode project; local SPM dep)
+- `Docs/` (Markdown + DocC)
+
+# Testing
+- After making big changes, build and verify there are no errors. If there are errors, fix them while keeping the context of what you were doing in mind (ex: Do not delete a file just to remove an error - find the root cause and rework logic if needed)
+- To verify visual or accessibility changes build and run (maybe the sample app or what is helpful) to check if changes function as intended.

@@ -1,0 +1,21 @@
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - sorted_imports
+  - unused_declaration
+  - vertical_whitespace
+
+disabled_rules:
+  - todo
+  - trailing_whitespace
+
+line_length:
+  warning: 130
+  ignores_comments: true
+  ignores_interpolated_strings: true
+
+identifier_name:
+  min_length: 3
+  excluded: [id, url]
+
+reporter: xcode

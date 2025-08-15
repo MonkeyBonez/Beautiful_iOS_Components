@@ -1,0 +1,11 @@
+--swiftversion 6.0
+--indent 4
+--wraparguments before-first
+--wrapcollections before-first
+--maxwidth 130
+--self remove
+--ifdef no-indent
+--importgrouping testable-last
+--semicolons never
+--stripunusedargs closure-only
+--trailingclosures enabled

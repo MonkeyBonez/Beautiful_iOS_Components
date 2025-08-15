@@ -1,0 +1,22 @@
+---
+description: Examples Catalog (Demo App) — Discoverability & Live Knobs
+globs: ["Examples/DemoApp/**"]
+alwaysApply: false
+---
+
+# Catalog Requirements
+- Home = searchable **list of component names**; tap → detail with **live knobs** (Toggles/Sliders/Pickers/TextFields) to tweak props.
+- Provide **presets** (Default, Dense, High-Contrast, Large Type) + a **Reset** action.
+- Show the **Swift snippet** for the current configuration with “Copy”.
+- Include quick **a11y toggles** (Dynamic Type, Dark Mode, High Contrast, Reduce Motion).
+- Demonstrate **iOS 26** features with clear labels; show fallbacks where applicable.
+
+# Architecture Notes
+- The Demo App depends on the package via **local SPM** (no code duplication).
+- Maintain a simple **registry** of components for the list; avoid runtime reflection.
+- **No network/telemetry**. No secrets. Deterministic previews (sizes/seeds) for snapshots.
+
+# Include (helpers)
+@catalog-registry.swift
+@knobs-panel.swift
+@deeplink-router.swift
