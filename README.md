@@ -12,6 +12,12 @@ Beautiful, highly customizable, and accessible SwiftUI components with an emphas
   - `Examples/DemoApp`
   - `Docs/`
 
+### Standout Components
+
+- **LiquidGlassToast**: a liquid‑glass toast inspired by a water droplet falling on glass.
+
+![LiquidGlassToast demo](Docs/Beautiful_iOS_Components.docc/Media/liquidGlassToastDemo.gif)
+
 ### Getting Started
 Add the package via Swift Package Manager, or open the demo under `Examples/DemoApp`.
 

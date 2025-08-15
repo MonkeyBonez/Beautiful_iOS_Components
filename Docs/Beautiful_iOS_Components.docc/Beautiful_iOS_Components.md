@@ -15,3 +15,7 @@ This package provides a library of SwiftUI components that are:
 ### Getting Started
 
 - <doc:GettingStarted>
+
+### Components
+
+- <doc:LiquidGlassToast> — a liquid‑glass toast inspired by a water droplet hitting glass. It “drops in,” spreads with a slight overshoot, then gently recoils before dismissing, mirroring how water behaves when it falls or spills.

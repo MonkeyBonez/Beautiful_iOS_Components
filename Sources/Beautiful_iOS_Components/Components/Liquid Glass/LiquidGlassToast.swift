@@ -2,7 +2,18 @@
 import SwiftUI
 import UIKit
 
-/// A liquid-glass style toast pill that animates in, expands with overshoot, holds, and dismisses.
+/// A liquid‑glass toast pill inspired by a water droplet hitting glass.
+///
+/// Design intent: it should feel like a droplet falls onto the screen, spreads outward,
+/// then gently recoils the way water does after it lands or spills. The animation phases
+/// map to that metaphor:
+/// - `dropTime`: initial fade/drop‑in as the droplet arrives
+/// - `expansionDuration` + `overshootPercent`: rapid spread with a soft overshoot
+/// - `contractionDuration`: gentle recoil back toward equilibrium
+/// - `holdDuration`: optional brief settle before disappearing
+/// - `closeDuration`: smooth collapse/fade out
+///
+/// The surface uses a glass effect to sell the liquid aesthetic while keeping the text legible.
 public struct LiquidGlassToast: View {
 	public let message: String
 	public var dropTime: TimeInterval = 1.2
