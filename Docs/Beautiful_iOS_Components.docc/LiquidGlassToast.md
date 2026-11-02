@@ -15,6 +15,22 @@ then gently recoils—mirroring how water behaves when it falls or spills.
 
 The surface uses a glass material so the toast reads clearly while preserving the liquid aesthetic. Enable tinting to add a hue to the glass for visual emphasis.
 
+## Layout and lifecycle
+
+Give the toast a bounded container width, typically in an overlay with horizontal padding.
+It fills that available width for layout, centers the glass surface, and wraps long messages
+at the current Dynamic Type size. Short messages retain the pill shape; multiline messages
+use rounded corners so their text stays inside the glass surface. Expansion never exceeds
+the container width.
+
+Changing the message or removing the view cancels its pending animation and dismissal work.
+Clearing an already-presented message closes it; an initially empty message is not presented.
+`holdDuration: nil` means no additional settling pause, not an indefinite presentation.
+
+With Reduce Motion enabled, the message appears without the width and opacity animations.
+The opening and settling durations still contribute to its reading time, and tapping to
+dismiss does not animate.
+
 ## Demo
 
 ![LiquidGlassToast demo](Media/liquidGlassToastDemo.gif)
